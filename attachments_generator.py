@@ -7,7 +7,7 @@ import json
 
 
 class AttachmentsGenerator:
-    
+
         def __init__(self, job_queue, database):
             self.job_queue = job_queue
             self.database = database
@@ -85,4 +85,6 @@ if __name__ == '__main__':
             #generator.add_job_type_counter(job, database)
         database.lpush('jobs_waiting_queue', json.dumps(job))
 
+
     print(database.llen('jobs_waiting_queue'))
+
