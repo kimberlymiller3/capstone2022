@@ -44,8 +44,8 @@ class AttachmentsGenerator:
             if job['job_type'] == 'documents':
                 job_count['num_jobs'] += 1
                 database.lpush('num_jobs_documents_queue', json.dumps(job_count))
-
-
+    
+    
 if __name__ == '__main__':
     database = redis.Redis()
     while not is_redis_available(database):
@@ -87,4 +87,5 @@ if __name__ == '__main__':
 
 
     print(database.llen('jobs_waiting_queue'))
+
 
